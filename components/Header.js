@@ -1,4 +1,4 @@
-// import Image from "next/image";
+import Image from "next/image";
 import { TbWorld, TbMenu2, TbUser, TbSearch } from "react-icons/tb";
 
 const Header = () => {
@@ -6,13 +6,13 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-white shadow-lg p-5 grid grid-cols-3 md:px-10 items-center  ">
       {/* left */}
       <div className="relative flex h-10 items-center cursor-pointer my-auto">
-        {/* <Image
+        <Image
           src="https://links.papareact.com/qd3"
           layout="fill"
           objectFit="contain"
           objectPosition="left"
           alt="Airbnb Logo"
-        /> */}
+        />
       </div>
 
       {/* middle */}

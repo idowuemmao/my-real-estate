@@ -1,15 +1,17 @@
-import Explore from '../components/Explore.js'
-import Banner from '../components/Banner.js'
-import Header from '../components/Header.js'
+import Explore from "../components/Explore";
+import Banner from "../components/Banner";
+import Header from "../components/Header";
+import LiveAnyWhere from "../components/LiveAnyWhere";
 
-export default function Home() {
+export default function Home(props) {
   return (
-    <main className=" ">
+    <div className="w-full ">
       <Header />
       <Banner />
-      <section className='max-w-5xl border-4 mx-auto px-8 sm:px-16'>
-        <Explore/>
-      </section>
-    </main>
-  )
+      <main className="max-w-5xl border-4 mx-auto px-8 sm:px-16">
+        <Explore />
+        <LiveAnyWhere />
+      </main>
+    </div>
+  );
 }
