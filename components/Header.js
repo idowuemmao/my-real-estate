@@ -5,13 +5,14 @@ import { TbWorld, TbMenu2, TbUser, TbSearch, TbUsers } from "react-icons/tb";
 import "react-date-range/dist/styles.css"; //main styles file
 import "react-date-range/dist/theme/default.css"; //theme css files
 import { DateRangePicker } from "react-date-range";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuests, setNoOfGuests] = useState(1);
+  const router = useRouter();
 
   function handleSelect(ranges) {
     setStartDate(ranges.selection.startDate);
@@ -26,10 +27,41 @@ const Header = () => {
   const resetInput = () => {
     setSearchInput("");
   };
+  // const search = () => {
+  //   if (typeof searchInput === "string") {
+  //     router.push({
+  //       path: "/search",
+  //       query: {
+  //         location: searchInput,
+  //         startDate: startDate.toISOString(),
+  //         endDate: endDate.toISOString(),
+  //         noOfGuests,
+  //       },
+  //     });
+  //   } else {
+  //     console.error("searchInput is not a string:", searchInput);
+  //   }
+  // };
+
+  const search = () => {
+    router.push({
+      pathname: "/search",
+      query: {
+        location: searchInput.toString(),
+        startDate: startDate.toISOString(),
+        endDate: endDate.toISOString(),
+        noOfGuests,
+      },
+    });
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-white shadow-lg p-5 grid grid-cols-3 md:px-10 items-center  ">
       {/* left */}
-      <Link className="relative flex h-10 items-center cursor-pointer my-auto" href='/'>
+      <div
+        onClick={() => router.push("/")}
+        className="relative flex h-10 items-center cursor-pointer my-auto"
+      >
         <Image
           src="https://links.papareact.com/qd3"
           layout="fill"
@@ -37,7 +69,7 @@ const Header = () => {
           objectPosition="left"
           alt="Airbnb Logo"
         />
-      </Link>
+      </div>
 
       {/* middle */}
       <div className="flex items-center md:border-2 rounded-full py-2 px-2 md:shadow-lg ">
@@ -88,9 +120,9 @@ const Header = () => {
             <button onClick={resetInput} className="flex-grow text-gray-500">
               Cancel
             </button>
-            <Link to href="/search" className="flex-grow text-[#ff5a60]">
+            <button onClick={search} className="flex-grow text-[#ff5a60]">
               Search
-            </Link>
+            </button>
           </div>
         </div>
       )}
