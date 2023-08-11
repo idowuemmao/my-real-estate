@@ -1,6 +1,6 @@
 import Explore from "../components/Explore";
 import Banner from "../components/Banner";
-import Header from "../components/Header.js";
+import Header from "../components/Header";
 import LiveAnyWhere from "../components/LiveAnyWhere";
 import LargeCard from "../components/LargeCard";
 import Footer from "../components/Footer";
