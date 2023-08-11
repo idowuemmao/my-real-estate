@@ -1,6 +1,6 @@
 import Explore from "../components/Explore";
 import Banner from "../components/Banner";
-import Header from "../components/Header";
+import Header from "../components/Header.js";
 import LiveAnyWhere from "../components/LiveAnyWhere";
 import LargeCard from "../components/LargeCard";
 import Footer from "../components/Footer";
@@ -20,7 +20,9 @@ export default function Home(props) {
           buttonText="Get Inspired"
         />
       </main>
-      <Footer />
+      <footer className="w-full bg-gray-100">
+        <Footer />
+      </footer>
     </div>
   );
 }

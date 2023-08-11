@@ -1,7 +1,13 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 import { TbWorld, TbMenu2, TbUser, TbSearch } from "react-icons/tb";
+import "react-date-range/dist/styles.css"; //main styles file
+import "react-date-range/dist/theme/default.css"; //theme css files
+import { Calender } from "react-date-range";
 
 const Header = () => {
+  const [searchInput, setSearchInput] = useState("");
   return (
     <header className="sticky top-0 z-50 bg-white shadow-lg p-5 grid grid-cols-3 md:px-10 items-center  ">
       {/* left */}
@@ -16,13 +22,15 @@ const Header = () => {
       </div>
 
       {/* middle */}
-      <div className="flex items-center md:border-2 rounded-full py-2 px-4 md:shadow-lg ">
+      <div className="flex items-center md:border-2 rounded-full py-2 px-2 md:shadow-lg ">
         <input
+          value={searchInput}
+          onChange={(event) => setSearchInput(event.target.value)}
           type="text"
           placeholder="Start Your Search"
-          className="text-sm text-gray-700 placeholder:text-gray-400 outline-none bg-transparent flex-grow"
+          className="text-sm text-gray-700 pl-2 placeholder:text-gray-400 hidden sm:flex outline-none bg-transparent flex-grow"
         />
-        <TbSearch className="hidden md:inline-flex w-8 h-8 md:mx-2 text-white cursor-pointer p-2 bg-[#ff5a60] rounded-full " />
+        <TbSearch className="hidden md:inline-flex text-white cursor-pointer md:mx- p-1 text-2xl bg-[#ff5a60] rounded-full" />
       </div>
 
       {/* right */}
@@ -36,6 +44,8 @@ const Header = () => {
           <TbUser className="cursor-pointer bg-gray-700 text-white rounded-full p-1 text-3xl" />
         </div>
       </div>
+
+      {searchInput && <div>{Calender}</div>}
     </header>
   );
 };
