@@ -2,8 +2,26 @@
 import { useSearchParams } from "next/navigation";
 import Header from "../../components/Header";
 import { format } from "date-fns";
+import InfoData from "../../components/InfoData";
+import InfoCard from "../../components/InfoCard";
 
 export default function Search() {
+  const InfoElement = InfoData.map(
+    ({ img, price, description, total, location, title, long, lat, star }) => (
+      <InfoCard
+        img={img}
+        key={price}
+        price={price}
+        description={description}
+        total={total}
+        long={long}
+        lat={lat}
+        location={location}
+        title={title}
+        star={star}
+      />
+    )
+  );
   const searchParams = useSearchParams();
 
   const location = searchParams.get("location");
@@ -32,12 +50,9 @@ export default function Search() {
             <p className="button">Rooms and Beds</p>
             <p className="button">More Filters</p>
           </div>
+          <div className="grid gap-4">{InfoElement}</div>
         </section>
       </main>
     </div>
   );
-}
-
-export async function getServerSideProps(){
-  const searchResults = await fetch('https://links.papareact.com/isz')
 }

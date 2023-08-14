@@ -23,12 +23,3 @@ const Explore = () => {
 
 export default Explore;
 
-// static rendering and server side rendering
-// export async function getStaticProps() {
-//   const response = await fetch("https://links.papareact.com/pyp");
-//   const exploreData = await response.json();
-//   console.log(exploreData);
-//   return {
-//     props: { exploreData },
-//   };
-// }

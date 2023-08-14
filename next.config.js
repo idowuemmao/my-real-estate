@@ -2,7 +2,8 @@
 const nextConfig = {
   // used to customize the configuration file
   images: {
-    domains: ["links.papareact.com"],
+    domains: ["fakestoreapi.com/products", "links.papareact.com", "jsonkeeper.com"],
+    // domains: ["links.papareact.com"],
   },
 };
 
