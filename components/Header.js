@@ -6,8 +6,9 @@ import "react-date-range/dist/styles.css"; //main styles file
 import "react-date-range/dist/theme/default.css"; //theme css files
 import { DateRangePicker } from "react-date-range";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
-const Header = () => {
+const Header = ({ placeholder }) => {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -18,41 +19,15 @@ const Header = () => {
     setStartDate(ranges.selection.startDate);
     setEndDate(ranges.selection.endDate);
   }
-  const selectionRange = {
-    key: "selection",
-    startDate: startDate,
-    endDate: endDate,
-  };
 
   const resetInput = () => {
     setSearchInput("");
   };
-  // const search = () => {
-  //   if (typeof searchInput === "string") {
-  //     router.push({
-  //       path: "/search",
-  //       query: {
-  //         location: searchInput,
-  //         startDate: startDate.toISOString(),
-  //         endDate: endDate.toISOString(),
-  //         noOfGuests,
-  //       },
-  //     });
-  //   } else {
-  //     console.error("searchInput is not a string:", searchInput);
-  //   }
-  // };
 
-  const search = () => {
-    router.push({
-      pathname: "/search",
-      query: {
-        location: searchInput.toString(),
-        startDate: startDate.toISOString(),
-        endDate: endDate.toISOString(),
-        noOfGuests,
-      },
-    });
+  const selectionRange = {
+    key: "selection",
+    startDate: startDate,
+    endDate: endDate,
   };
 
   return (
@@ -77,8 +52,8 @@ const Header = () => {
           value={searchInput}
           onChange={(event) => setSearchInput(event.target.value)}
           type="text"
-          placeholder="Start Your Search"
-          className="text-sm text-gray-700 pl-2 placeholder:text-gray-400 hidden sm:flex outline-none bg-transparent flex-grow"
+          placeholder={placeholder || "Start your search"}
+          className="text-sm text-gray-700 pl-2 placeholder:text-gray-400 placeholder:text-center hidden sm:flex outline-none bg-transparent flex-grow"
         />
         <TbSearch className="hidden md:inline-flex text-white cursor-pointer md:mx- p-1 text-2xl bg-[#ff5a60] rounded-full" />
       </div>
@@ -120,9 +95,22 @@ const Header = () => {
             <button onClick={resetInput} className="flex-grow text-gray-500">
               Cancel
             </button>
-            <button onClick={search} className="flex-grow text-[#ff5a60]">
+            {/* <button onClick={search} className="flex-grow text-[#ff5a60]">
               Search
-            </button>
+            </button>o */}
+            <Link
+              href={{
+                pathname: "/search",
+                query: {
+                  location: searchInput,
+                  startDate: startDate.toISOString(),
+                  endDate: endDate.toISOString(),
+                  noOfGuests,
+                },
+              }}
+            >
+              Search
+            </Link>
           </div>
         </div>
       )}
