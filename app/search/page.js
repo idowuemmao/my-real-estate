@@ -4,7 +4,7 @@ import Header from "../../components/Header";
 import { format } from "date-fns";
 import InfoData from "../../components/InfoData";
 import InfoCard from "../../components/InfoCard";
-
+import Map from "../../components/map";
 export default function Search() {
   const InfoElement = InfoData.map(
     ({ img, price, description, total, location, title, long, lat, star }) => (
@@ -51,6 +51,9 @@ export default function Search() {
             <p className="button">More Filters</p>
           </div>
           <div className="grid gap-4">{InfoElement}</div>
+        </section>
+        <section className="">
+          <Map />
         </section>
       </main>
     </div>

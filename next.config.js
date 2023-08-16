@@ -2,8 +2,15 @@
 const nextConfig = {
   // used to customize the configuration file
   images: {
-    domains: ["fakestoreapi.com/products", "links.papareact.com", "jsonkeeper.com"],
-    // domains: ["links.papareact.com"],
+    domains: [
+      "fakestoreapi.com/products",
+      "links.papareact.com",
+      "jsonkeeper.com",
+    ],
+  },
+  env: {
+    mapbox_key:
+      "pk.eyJ1IjoiZW1teWdyZWF0IiwiYSI6ImNsbGR0aGYxbzBqMW0zZXAxN2tkOTZrb3oifQ.rHmnNMD5UYJa0P6vrEK1pw",
   },
 };
 
