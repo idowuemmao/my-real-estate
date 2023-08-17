@@ -1,5 +1,5 @@
 "use client";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useState } from "react";
 import { TbWorld, TbMenu2, TbUser, TbSearch, TbUsers } from "react-icons/tb";
 import "react-date-range/dist/styles.css"; //main styles file

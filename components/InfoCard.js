@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { BiSolidStar, BiStar } from "react-icons/bi";
 import { BsHeart, BsHeartFill } from "react-icons/bs";
 

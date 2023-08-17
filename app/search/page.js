@@ -33,6 +33,7 @@ export default function Search() {
   const formattedStartDate = format(new Date(startDate), "dd MMMM yy");
   const formattedEndDate = format(new Date(endDate), "dd MMMM yy");
   const range = `${formattedStartDate} - ${formattedEndDate}`;
+
   return (
     <div>
       <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`} />
@@ -54,7 +55,7 @@ export default function Search() {
           <div className="grid gap-4">{InfoElement}</div>
         </section>
         <section className="hidden xl:inline-flex xl:min-w-[600px] cursor-pointer">
-          <Map searchResults={searchResults} />
+          <Map searchResults={InfoData} />
         </section>
       </main>
     </div>
