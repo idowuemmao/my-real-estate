@@ -8,9 +8,9 @@ import Router from "next/router";
 //Build the progress Bar that takes an argument of an object
 const progress = new ProgressBar({
   size: 12,
-  color: "#ff5a60",
+  color: "red",
   className: "z-50",
-  delay: 150,
+  delay: 200,
 });
 
 //Make a connection to the Router

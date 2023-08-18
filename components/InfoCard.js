@@ -1,6 +1,6 @@
 import Image from "next/legacy/image";
-import { BiSolidStar, BiStar } from "react-icons/bi";
-import { BsHeart, BsHeartFill } from "react-icons/bs";
+import { BiSolidStar } from "react-icons/bi";
+import { BsHeart } from "react-icons/bs";
 
 const InfoCard = ({
   img,

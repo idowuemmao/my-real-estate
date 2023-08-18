@@ -7,7 +7,7 @@ const SmallCard = ({ img, location, distance }) => {
         src={img}
         alt="card-img"
         width={50}
-        height={20}
+        height={50}
         className="rounded-xl"
       />
       <div className="min-w-max ">

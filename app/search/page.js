@@ -4,7 +4,7 @@ import Header from "../../components/Header";
 import { format } from "date-fns";
 import InfoData from "../../components/InfoData";
 import InfoCard from "../../components/InfoCard";
-import Map from "../../components/Map";
+import MapApp from "../../components/MapApp";
 
 export default function Search() {
   const InfoElement = InfoData.map(
@@ -35,10 +35,10 @@ export default function Search() {
   const range = `${formattedStartDate} - ${formattedEndDate}`;
 
   return (
-    <div>
+    <div className="grid border-8 border-red-500 max-w-full h-auto">
       <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`} />
-      <main className="flex ">
-        <section className="flex-grow px-8 pt-12 ">
+      <main className="flex w-auto max-h-full">
+        <section className="flex-gro px-8 pt-12">
           <p className="text-sm">
             300+ Stays - {range} - for {noOfGuests} guests
           </p>
@@ -54,8 +54,8 @@ export default function Search() {
           </div>
           <div className="grid gap-4">{InfoElement}</div>
         </section>
-        <section className="hidden xl:inline-flex xl:min-w-[600px] cursor-pointer">
-          <Map searchResults={InfoData} />
+        <section className="hidden xl:inline-flex w-full h-full overflow-hiddn cursor-pointer">
+          <MapApp searchResults={InfoData} />
         </section>
       </main>
     </div>

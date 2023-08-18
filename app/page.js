@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 
 export default function Home() {
   return (
-    <div className="w-full ">
+    <div className="w-full">
       <Header />
       <Banner />
       <main className="max-w-5xl mx-auto px-8 sm:px-16">

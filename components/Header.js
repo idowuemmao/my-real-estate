@@ -95,9 +95,6 @@ const Header = ({ placeholder }) => {
             <button onClick={resetInput} className="flex-grow text-gray-500">
               Cancel
             </button>
-            {/* <button onClick={search} className="flex-grow text-[#ff5a60]">
-              Search
-            </button>o */}
             <Link
               href={{
                 pathname: "/search",
