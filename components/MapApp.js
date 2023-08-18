@@ -1,9 +1,7 @@
 import React, { useState, useMemo } from "react";
-import Map, { Marker } from "react-map-gl";
-// import { getCenter } from "geolib";
+import Map, { Marker, Popup } from "react-map-gl";
 import getCenter from "geolib/es/getCenter";
 import "mapbox-gl/dist/mapbox-gl.css";
-// import pin from "./pinico.ico";
 
 const MapApp = ({ searchResults }) => {
   const [selectedLocation, setSelectedLocation] = useState({});
@@ -18,25 +16,41 @@ const MapApp = ({ searchResults }) => {
     latitude: center.latitude,
     zoom: 11,
   });
-  const markers = useMemo(
-    () =>
-      coordinates.map((result) => (
-        <Marker
-          key={result.longitude}
-          latitude={result.latitude}
-          longitude={result.longitude}
-        >
-          <div
-            onClick={() => setSelectedLocation(result)}
-            className="cursor-pointer text-xl animate-bounce"
-          >
-            📌
-          </div>
-        </Marker>
-      )),
-    [coordinates]
-  );
-
+  //   const markers = useMemo(
+  //     () =>
+  //       searchResults.map((result) => (
+  //         <div key={result.long}>
+  //           <Marker
+  //             // key={result.long}
+  //             latitude={result.lat}
+  //             longitude={result.long}
+  //           >
+  //             <div
+  //               onClick={() => setSelectedLocation(result)}
+  //               className="cursor-pointer text-xl animate-bounce"
+  //               aria-label="push-pin"
+  //             >
+  //               📌
+  //             </div>
+  //           </Marker>
+  //           {selectedLocation.long === result.long ? (
+  //             <Popup
+  //               onClose={() => setSelectedLocation({})}
+  //               closeOnClick={true}
+  //               latitude={result.lat}
+  //               longitude={result.long}
+  //             >
+  //               {result.title}
+  //             </Popup>
+  //           ) : (
+  //             false
+  //           )}
+  //         </div>
+  //       )),
+  //     []
+  //   );
+  console.log(selectedLocation.title);
+  //   console.log(searchResults);
   return (
     <Map
       {...viewState}
@@ -45,7 +59,37 @@ const MapApp = ({ searchResults }) => {
       mapStyle="mapbox://styles/emmygreat/clldwbzs5010f01pb46ro5s3v"
       style={{ width: "100%", height: "100%" }}
     >
-      {markers}
+      {/* {markers} */}
+      {searchResults.map((result) => (
+        <div key={result.long}>
+          <Marker
+            latitude={result.lat}
+            longitude={result.long}
+            offsetLeft={-20}
+            offsetTop={-10}
+          >
+            <p
+              role="img"
+              onClick={() => setSelectedLocation(result)}
+              className="cursor-pointer text-2xl animate-bounce"
+              aria-label="push-pin"
+            >
+              📌
+            </p>
+          </Marker>
+          {/* The popup that should show if we click on a Marker  */}
+          {selectedLocation.long ? (
+            <Popup
+              onClose={() => setSelectedLocation({})}
+              closeOnClick={true}
+              latitude={selectedLocation.lat}
+              longitude={selectedLocation.long}
+            >
+              <h1>This is pop up</h1>
+            </Popup>
+          ) : null}
+        </div>
+      ))}
     </Map>
   );
 };
