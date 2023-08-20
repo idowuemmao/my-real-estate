@@ -1,22 +1,22 @@
-"use client";
+// "use client"
 import "./globals.css";
 import { Inter } from "next/font/google";
 import "../styles/global.css";
-import ProgressBar from "@badrap/bar-of-progress";
-import Router from "next/router";
+// import ProgressBar from "@badrap/bar-of-progress";
+// import Router from "next/navigation";
 
 //Build the progress Bar that takes an argument of an object
-const progress = new ProgressBar({
-  size: 12,
-  color: "red",
-  className: "z-50",
-  delay: 200,
-});
+// const progress = new ProgressBar({
+//   size: 12,
+//   color: "red",
+//   className: "z-50",
+//   delay: 200,
+// });
 
 //Make a connection to the Router
-Router.events.on("routeChangeStart", progress.start);
-Router.events.on("routeChangeComplete", progress.finish);
-Router.events.on("routeChangeError", progress.finish);
+// Router.events.on("routeChangeStart", progress.start);
+// Router.events.on("routeChangeComplete", progress.finish);
+// Router.events.on("routeChangeError", progress.finish);
 
 const inter = Inter({ subsets: ["latin"] });
 
