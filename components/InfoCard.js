@@ -1,6 +1,7 @@
 import Image from "next/legacy/image";
+import { useState } from "react";
 import { BiSolidStar } from "react-icons/bi";
-import { BsHeart } from "react-icons/bs";
+import { BsHeart, BsHeartFill } from "react-icons/bs";
 
 const InfoCard = ({
   img,
@@ -11,6 +12,12 @@ const InfoCard = ({
   price,
   total,
 }) => {
+  const [toggle, setToggle] = useState(true);
+
+  const handleToggle = () => {
+    setToggle((prevState) => !prevState);
+  };
+
   return (
     <div className="flex gap-3 items-center rounded-lg w-full cursor-pointer border-b hover:shadow-lg hover:opacity-80 transition duration-200 ease-out first:border-t py-4 px-2">
       <div className="relative w-48 h-24 md:h-52 md:w-80 flex-shrink-0">
@@ -25,7 +32,9 @@ const InfoCard = ({
       <div className="grid gap-2 w-full">
         <div className="flex items-center justify-between">
           <p className="text-xs text-gray-500 ">{location}</p>
-          <BsHeart className="cursor-pointer" />
+          <div onClick={handleToggle} className="cursor-pointer ">
+            {toggle ? <BsHeart className="border-none" /> : <BsHeartFill />}
+          </div>
         </div>
         <p className="text-xl font-medium">{title}</p>
         <div className="border-b w-16" />
