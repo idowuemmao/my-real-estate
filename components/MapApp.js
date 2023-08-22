@@ -78,16 +78,12 @@ const MapApp = ({ searchResults }) => {
             </p>
           </Marker>
           {/* The popup that should show if we click on a Marker  */}
-          {selectedLocation.long ? (
-            <Popup
-              onClose={() => setSelectedLocation({})}
-              closeOnClick={true}
-              latitude={selectedLocation.lat}
-              longitude={selectedLocation.long}
-            >
-              <h1>This is pop up</h1>
-            </Popup>
-          ) : null}
+          {selectedLocation.lat === result.lat ? (<Popup onClose={()=> setSelectedLocation({})} closeOnClick={false} latitude={result.lat} longitude={result.long}>
+            <div className="grid place-items-center">
+              <p className="font-semibold">{result.title}</p>
+              <p>{result.price}</p>
+            </div>
+          </Popup>) : false }
         </div>
       ))}
     </Map>
