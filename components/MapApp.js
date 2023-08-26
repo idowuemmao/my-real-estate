@@ -16,40 +16,7 @@ const MapApp = ({ searchResults }) => {
     latitude: center.latitude,
     zoom: 11,
   });
-  //   const markers = useMemo(
-  //     () =>
-  //       searchResults.map((result) => (
-  //         <div key={result.long}>
-  //           <Marker
-  //             // key={result.long}
-  //             latitude={result.lat}
-  //             longitude={result.long}
-  //           >
-  //             <div
-  //               onClick={() => setSelectedLocation(result)}
-  //               className="cursor-pointer text-xl animate-bounce"
-  //               aria-label="push-pin"
-  //             >
-  //               📌
-  //             </div>
-  //           </Marker>
-  //           {selectedLocation.long === result.long ? (
-  //             <Popup
-  //               onClose={() => setSelectedLocation({})}
-  //               closeOnClick={true}
-  //               latitude={result.lat}
-  //               longitude={result.long}
-  //             >
-  //               {result.title}
-  //             </Popup>
-  //           ) : (
-  //             false
-  //           )}
-  //         </div>
-  //       )),
-  //     []
-  //   );
-  //   console.log(searchResults);
+
   return (
     <Map
       {...viewState}
