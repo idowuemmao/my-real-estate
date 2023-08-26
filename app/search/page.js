@@ -47,7 +47,7 @@ export default function Search() {
           </h1>
           <div className="hidden md:flex mb-5 text-gray-800 whitespace-nowrap gap-4">
             <p className="button">Cancellation Flexibility</p>
-            <p className="button">Types of Place</p>
+            <p className="button">Type of Place</p>
             <p className="button">Price</p>
             <p className="button">Rooms and Beds</p>
             <p className="button">More Filters</p>
