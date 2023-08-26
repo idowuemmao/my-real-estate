@@ -2,12 +2,7 @@
 const nextConfig = {
   // used to customize the configuration file
   images: {
-    domains: [
-      "fakestoreapi.com/products",
-      "links.papareact.com",
-      "jsonkeeper.com",
-      "drive.google.com",
-    ],
+    domains: ["links.papareact.com"],
   },
   //This is a public key that's why its here
   env: {
