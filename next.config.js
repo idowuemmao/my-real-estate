@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   // used to customize the configuration file
   images: {
     domains: [
       "fakestoreapi.com/products",
       "links.papareact.com",
       "jsonkeeper.com",
+      "drive.google.com",
     ],
   },
   //This is a public key that's why its here

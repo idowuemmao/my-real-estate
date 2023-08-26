@@ -7,6 +7,7 @@ import "react-date-range/dist/theme/default.css"; //theme css files
 import { DateRangePicker } from "react-date-range";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import logo from "../house-logo.png";
 
 const Header = ({ placeholder }) => {
   const [searchInput, setSearchInput] = useState("");
@@ -38,8 +39,9 @@ const Header = ({ placeholder }) => {
         className="relative flex h-10 items-center cursor-pointer my-auto"
       >
         <Image
-          src="https://links.papareact.com/qd3"
-          layout="fill"
+          src={logo}
+          width={150}
+          height={150}
           objectFit="contain"
           objectPosition="left"
           alt="Airbnb Logo"
@@ -116,6 +118,3 @@ const Header = ({ placeholder }) => {
 };
 
 export default Header;
-
-// react interviews and questions
-// rest, html,css, javascript, git, typescript interview

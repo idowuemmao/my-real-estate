@@ -35,7 +35,7 @@ export default function Search() {
   const range = `${formattedStartDate} - ${formattedEndDate}`;
 
   return (
-    <div className="grid border-8 border-red-500 max-w-full h-auto">
+    <div className="grid max-w-full h-auto">
       <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`} />
       <main className="flex w-auto max-h-full">
         <section className="flex-gro px-8 pt-12">
@@ -54,7 +54,7 @@ export default function Search() {
           </div>
           <div className="grid gap-4">{InfoElement}</div>
         </section>
-        <section className="hidden xl:inline-flex w-full h-full overflow-hiddn cursor-pointer">
+        <section className="hidden xl:inline-flex w-full h-full overflow-hidden cursor-pointer">
           <MapApp searchResults={InfoData} />
         </section>
       </main>
